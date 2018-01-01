@@ -1,13 +1,6 @@
 import sys
 mem = []
 pc = 0
-sp = 0
-
-def unsigned(x):
-    return x if x >= 0 else 256 + x
-
-def tosigned(x):
-    return x if x < 128 else x - 256
 
 def get_val(addr):
     # input
@@ -22,7 +15,7 @@ def set_val(addr, val):
         return sys.stdout.write(chr(val))
     while len(mem) <= addr:
         mem.append(0)
-    mem[addr] = tosigned(unsigned(val) & 0xff)
+    mem[addr] = val
 
 def mainloop(src):
     while pc + 2 < len(mem):
@@ -35,5 +28,13 @@ def mainloop(src):
             pc += 3
 
 def main():
-    mem = [tosigned(x) for x in map(ord, open(input(), 'r').read())]
+    while True:
+        tmp = ""
+        while True:
+            x = sys.stdin.read(1)
+            if x in ' \n\t':
+                tmp += x
+                mem.append(int(tmp, 16))
+                tmp = ""
     mainloop(mem)
+
