@@ -33,7 +33,16 @@ fn bubble_sort(vs: &mut Vec<i32>) {
     }
 }
 
-fn quick_sort(vs: &mut Vec<i32>) {}
+
+fn _quick_sort(vs: &mut Vec<i32>) {
+    if vs.len() == 1 {
+        return;
+    }
+}
+
+fn quick_sort(vs: &mut Vec<i32>) {
+    _quick_sort(vs);
+}
 
 fn main() {
     let N = val::<i32>();
