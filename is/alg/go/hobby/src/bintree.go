@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	"fmt"
+	// "fmt"
 )
 
 type Tag interface {
@@ -139,7 +139,7 @@ func CreateBinTree() *BinTree {
 	return nil
 }
 
-func main() {
+/* func main() {
 	bt := CreateBinTree()
 
 	bt = bt.Insert(String("hoge"), 1)
@@ -150,4 +150,4 @@ func main() {
 	bt = bt.Delete(String("hoge"))
 	_, err := bt.Find(String("hoge"))
 	fmt.Println(err)
-}
+}*/
